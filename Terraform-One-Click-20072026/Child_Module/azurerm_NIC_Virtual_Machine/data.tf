@@ -12,3 +12,8 @@ data "azurerm_public_ip" "pip_data" {
   resource_group_name = each.value.rg_name
 }
 
+data "azurerm_public_ip" "pip_data1" {
+  for_each = var.nic_vm
+  name                = each.value.pip_name
+  resource_group_name = each.value.rg_name
+}
